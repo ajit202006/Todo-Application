@@ -1,7 +1,8 @@
-import userModel from "../models/users.js"
+import { Request, Response } from "express";
+import userModel from "../models/users.js";
 
 const userController = {
-    register: async (req, res) => {
+    register: async (req: Request, res: Response) => {
         try {
             const userExist = await userModel.checkUserExist(req.body.email);
             if (userExist) {
@@ -11,11 +12,11 @@ const userController = {
                 res.send({ status: "Success", data: data });
             }
         } catch (error) {
-            console.log(error.message);
+            console.log(error);
             res.send("Something went wrong.");
         }
     },
-    login: async (req, res) => {
+    login: async (req: Request, res: Response) => {
         try {
             const userExist = await userModel.checkUserExist(req.body.email);
             if (!userExist) {
