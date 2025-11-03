@@ -30,6 +30,7 @@ const validateLogin = async (req: Request, res: Response, next: NextFunction) =>
   await check("email")
     .isLength({ min: 5 })
     .contains('@')
+    .normalizeEmail()
     .withMessage("email should be at least 5 characters long with an '@' symbol")
     .run(req);
   await check("password")
