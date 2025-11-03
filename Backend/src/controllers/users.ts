@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import userModel from "../models/users.js";
+import userModel from "../models/users";
 
 const userController = {
     register: async (req: Request, res: Response) => {
