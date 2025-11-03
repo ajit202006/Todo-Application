@@ -1,4 +1,4 @@
-import User from "../database/users.js";
+import User from "../database/users";
 
 let todoModel = {
     createTask: async (userInfo: { id: string, task: string, isDone: boolean }) => {
