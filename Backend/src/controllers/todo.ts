@@ -1,5 +1,5 @@
 import { check, validationResult } from "express-validator";
-import todoModel from "../models/todo.js";
+import todoModel from "../models/todo";
 import { Request, Response } from "express";
 
 const todoController = {
@@ -37,6 +37,21 @@ const todoController = {
             res.send({ status: "success" });
         } catch (error: any) {
             console.log(error.message)
+            res.send({ status: "failed", message: error.message });
+        }
+    },
+
+    editTodo: async (req: Request, res: Response) => {
+        try {
+            await check("task").isLength({ min: 4 }).withMessage("Task should contain more than 4 characters").run(req);
+            const result = validationResult(req);
+            if (!result.isEmpty()) {
+                res.send({ status: "failed", errors: result.array() });
+            }
+            const id = await todoModel.editTask(req.body.id, req.body.index, req.body.task);
+            res.send({ status: "success", result: id });
+        } catch (error: any) {
+            console.log(error.message);
             res.send({ status: "failed", message: error.message });
         }
     },
