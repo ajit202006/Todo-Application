@@ -9,6 +9,8 @@ todoRouter.post("/fetch", todoController.getTodo);
 todoRouter.post("/", todoController.createTodo);
 // PUT route to update data
 todoRouter.put("/", todoController.updateTodo);
+// PUT route to update data
+todoRouter.put("/edit", todoController.editTodo);
 // DELETE route to delete data
 todoRouter.delete("/", todoController.deleteTodo);
 
