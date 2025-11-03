@@ -28,6 +28,17 @@ let todoModel = {
         }
     },
 
+    editTask:async (userId: string, index: number,task:string) => {
+        const userData = await User.findById(userId);
+        if (userData) {
+            const newTodos = [...userData.todos];
+            newTodos[index].task = task;
+            await userData.updateOne({ todos: newTodos });
+        } else {
+            throw Error("User not found");
+        }
+    },
+
     deleteTask: async (userId: string, index: number) => {
         const userData = await User.findById(userId);
         if (userData) {
