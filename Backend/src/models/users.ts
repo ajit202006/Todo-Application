@@ -1,4 +1,4 @@
-import User from "../database/users.js";
+import User from "../database/users";
 
 const userModel = {
     checkUserExist: async (userEmail: string) => {
