@@ -1,0 +1,25 @@
+@import 'tailwindcss';
+
+@theme {
+
+    --animate-scale: scale .6s ease-in-out;
+    --animate-in-view: in-view 1.5s ease-in-out;
+    @keyframes scale {
+        0% {
+            transform: scale(0);
+            z-index: 2;
+        }
+        100% {
+            transform: scale(1);
+            z-index: 1
+        }
+    }
+    @keyframes in-view {
+        0% {
+            width: 100px;
+        }
+        100% {
+            width: 326.5px;
+        }
+    }
+}
