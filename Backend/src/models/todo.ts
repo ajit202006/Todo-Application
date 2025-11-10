@@ -1,10 +1,10 @@
 import User from "../database/users";
 
 let todoModel = {
-    createTask: async (userInfo: { id: string, task: string, isDone: boolean }) => {
-        const result = await User.findById(userInfo.id);
+    createTask: async ( id: string, task: string, isDone: boolean ) => {
+        const result = await User.findById(id);
         if (result) {
-            const newTodos = [...result.todos, { task: userInfo.task, isDone: userInfo.isDone }];
+            const newTodos = [...result.todos, { task: task, isDone: isDone }];
             await result.updateOne({ todos: newTodos })
             return result._id;
         } else {
