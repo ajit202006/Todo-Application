@@ -22,11 +22,11 @@ const todoController = {
             if (!result.isEmpty()) {
                 res.send({ status: "failed", errors: result.array() });
             }
-            const id = await todoModel.createTask(req.body);
+            const id = await todoModel.createTask(req.body.id,req.body.task,req.body.isDone);
             res.send({ status: "success", id: id });
         } catch (error: any) {
             console.log(error.message);
-            res.send({ status: "failed", message: error.message });
+            res.send({ status: "failed", errors: [error.message ]});
         }
     },
 
