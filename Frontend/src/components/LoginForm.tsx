@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaRegEye, FaRegEyeSlash, FaLock } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 
-const URL = process.env.SERVER_URL || "http://localhost:3000";
+const URL = process.env.SERVER_URL || "";
 
 const LoginForm = () => {
     const [showPassword, setShowPassword] = useState(false);
