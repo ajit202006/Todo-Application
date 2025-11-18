@@ -4,7 +4,7 @@ import { FaRegEye, FaRegEyeSlash, FaLock } from "react-icons/fa";
 import { IoPerson, IoMail } from "react-icons/io5";
 import { BsFillShieldLockFill } from "react-icons/bs";
 
-const URL = process.env.VITE_SERVER_URL || "http://localhost:3000";
+const URL = import.meta.env.VITE_SERVER_URL || "http://localhost:3000";
 
 const Form = () => {
   const [showPassword, setShowPassword] = useState(false);
