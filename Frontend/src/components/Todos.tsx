@@ -3,7 +3,7 @@ import Add from './Add.tsx';
 import TodoList from './TodoList.tsx';
 import { BiNotepad } from "react-icons/bi";
 
-const URL = process.env.SERVER_URL || "http://localhost:3000";
+const URL = process.env.VITE_SERVER_URL || "http://localhost:3000";
 
 const Todos = () => {
     const [todos, setTodos] = useState([]);
