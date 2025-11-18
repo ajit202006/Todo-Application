@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 import todoRouter from "./routers/todo";
 import userRouter from "./routers/users";
 
+dotenv.config({path:'src/.env'});
+
 const app=express();
 
 const corsOptions = {
@@ -12,7 +14,6 @@ const corsOptions = {
     methods: 'GET,PUT,POST,DELETE',
 };
 
-dotenv.config({path:'src/.env'});
 app.use(express.json());
 app.use(cors(corsOptions));
 
